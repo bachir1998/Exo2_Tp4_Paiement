@@ -58,7 +58,7 @@ public class PayPalFragment extends DialogFragment
         ok_paypal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                payPalFragmentListener.onOkClickPAypalDialog(label_pseudo.getText().toString());
+                payPalFragmentListener.onOkClickPAypalDialog(pseudo.getText().toString());
             }
         });
 
