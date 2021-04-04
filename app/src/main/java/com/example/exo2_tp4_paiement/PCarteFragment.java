@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ public class PCarteFragment extends DialogFragment
 
     private EditText firstname,lastname,num_carte,code_cvc,date_exp;
     private TextView label_firstname,label_lastname,label_numcarte,label_codecvc,label_datexp;
+    private Button btn_ok;
+    PCarteFragmentListener pCarteFragmentListener;
 
     public PCarteFragment() {
         // le fragment est créé par la méthode newInstance
@@ -42,14 +45,25 @@ public class PCarteFragment extends DialogFragment
     }
 
 
+
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
 
-                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_carte_bancaire, container);
 
-        View view = inflater.inflate(R.layout.fragment_carte_bancaire, container, false);
+    }
 
 
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        //View view = inflater.inflate(R.layout.fragment_carte_bancaire, container, false);
+        super.onViewCreated(view, savedInstanceState);
+
+
+        pCarteFragmentListener = (PCarteFragmentListener) getActivity();
 
         label_firstname = view.findViewById(R.id.label_firstname);
         label_lastname = view.findViewById(R.id.label_lastname);
@@ -63,10 +77,19 @@ public class PCarteFragment extends DialogFragment
         code_cvc= (EditText) view.findViewById(R.id.code_cvc);
         date_exp= (EditText) view.findViewById(R.id.date_exp);
 
+        btn_ok = view.findViewById(R.id.ok);
+
+        btn_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                pCarteFragmentListener.onOkClickCarteDialog(firstname.getText().toString()+" "+lastname.getText().toString());
+
+            }
+        });
 
 
 
-       return  view;
     }
 
 

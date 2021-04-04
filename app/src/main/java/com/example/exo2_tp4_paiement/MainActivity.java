@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PCarteFragmentListener, PayPalFragmentListener {
     Button frag_PC_btn;
     Button frag_PP_btn;
     @Override
@@ -50,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
         PCarteFragment pCarteFragment = PCarteFragment.newInstance("Titre");
         pCarteFragment.show(fm, "fragment_carte_bancaire");
 
+    }
+
+    public void onOkClickCarteDialog(String nom) {
+        Toast.makeText(this, "Thanks, " + nom, Toast.LENGTH_SHORT).show();
+    }
+
+    public void onOkClickPAypalDialog(String nom) {
+        Toast.makeText(this, "Vous êtes bien connecté : " + nom, Toast.LENGTH_SHORT).show();
     }
 
 

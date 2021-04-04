@@ -50,7 +50,7 @@
         android:layout_marginBottom="5dp"/>
 
     <Button
-        android:id="@+id/ok"
+        android:id="@+id/ok_paypal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="OK" />
