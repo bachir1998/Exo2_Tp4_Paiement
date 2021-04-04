@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Exo2_Tp4_Paiement"
